@@ -1,6 +1,6 @@
 default: &default
   adapter: postgresql
-  host: <% ENV.fetch('POSTGRES_HOST', 'localhost') %>
+  host: <% ENV.fetch('POSTGRES_HOST') { 'localhost' } %>
   user: <% ENV['POSTGRES_USER'] %>
   password: <% ENV['POSTGRES_PASSWORD'] %>
   encoding: unicode
