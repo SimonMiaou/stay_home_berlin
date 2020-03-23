@@ -61,12 +61,9 @@ jobs:
           ${{ runner.os }}-yarn-
     - name: Install npm packages
       run: yarn install --check-files
+    - run: env | sort
     - name: Database
       run: bundle exec rails db:setup
-      env:
-        POSTGRES_HOST: postgres
-        POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: postgres
     - name: Test
       run: bundle exec rails test
     - name: Lint
