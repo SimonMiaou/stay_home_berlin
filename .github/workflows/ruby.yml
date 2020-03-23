@@ -7,13 +7,14 @@ on:
     branches: [ master ]
 
 jobs:
-  env:
-    POSTGRES_HOST: postgres
-    POSTGRES_USER: postgres
-    POSTGRES_PASSWORD: postgres
   build:
 
     runs-on: ubuntu-latest
+
+    env:
+      POSTGRES_HOST: postgres
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
 
     # Service containers to run with `container-job`
     services:
