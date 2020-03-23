@@ -52,7 +52,6 @@ jobs:
     - name: Get yarn cache directory path
       id: yarn-cache-dir-path
       run: echo "::set-output name=dir::$(yarn cache dir)"
-
     - uses: actions/cache@v1
       id: yarn-cache # use this to check for `cache-hit` (`steps.yarn-cache.outputs.cache-hit != 'true'`)
       with:
@@ -64,6 +63,10 @@ jobs:
       run: yarn install --check-files
     - name: Database
       run: bundle exec rails db:setup
+      env:
+        POSTGRES_HOST: postgres
+        POSTGRES_USER: postgres
+        POSTGRES_PASSWORD: postgres
     - name: Test
       run: bundle exec rails test
     - name: Lint
