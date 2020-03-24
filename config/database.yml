@@ -1,8 +1,8 @@
 default: &default
   adapter: postgresql
-  host: <% ENV['POSTGRES_HOST'] %>
-  user: <% ENV['POSTGRES_USER'] %>
-  password: <% ENV['POSTGRES_PASSWORD'] %>
+  host: <%= ENV['POSTGRES_HOST'] %>
+  user: <%= ENV['POSTGRES_USER'] %>
+  password: <%= ENV['POSTGRES_PASSWORD'] %>
   encoding: unicode
   pool: 5
 
