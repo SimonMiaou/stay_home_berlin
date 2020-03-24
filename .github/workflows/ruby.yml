@@ -65,9 +65,9 @@ jobs:
           ${{ runner.os }}-yarn-
     - name: Install npm packages
       run: yarn install --check-files
-    - name: Database
-      run: bundle exec rails db:setup
-    - name: Test
-      run: bundle exec rails test
-    - name: Lint
-      run: bundle exec rubocop
+    # - name: Database
+    #   run: bundle exec rails db:setup
+    # - name: Test
+    #   run: bundle exec rails test
+    # - name: Lint
+    #   run: bundle exec rubocop
