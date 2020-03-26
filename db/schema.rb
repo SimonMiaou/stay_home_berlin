@@ -76,6 +76,7 @@ ActiveRecord::Schema.define(version: 2020_03_26_192006) do
 
   create_table "delivery_areas", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.string "name"
+    t.string "postcode"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
