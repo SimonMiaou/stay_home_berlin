@@ -62,6 +62,8 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "stay_home_berlin_production"
 
+  config.action_mailer.default_url_options = { host: 'https://stay-home-berlin.herokuapp.com/' }
+
   config.action_mailer.perform_caching = false
 
   # Ignore bad email addresses and do not raise email delivery errors.
