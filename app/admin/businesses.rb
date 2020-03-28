@@ -9,6 +9,22 @@ ActiveAdmin.register Business do
                 :comment,
                 delivery_area_ids: []
 
+  form do |f|
+    f.semantic_errors
+    f.inputs
+    inputs do
+      f.input :delivery_areas, as: :check_boxes,
+                               collection: DeliveryArea.order(:postcode)
+                                                       .map { |da| ["#{da.postcode} - #{da.name}", da.id] }
+    end
+    f.actions
+  end
+
+  remove_filter :business_delivery_areas
+
+  preserve_default_filters!
+  filter :delivery_areas, collection: -> { DeliveryArea.order(:postcode).map { |da| ["#{da.postcode} - #{da.name}", da.id] } }
+
   index do
     selectable_column
     id_column
@@ -25,16 +41,5 @@ ActiveAdmin.register Business do
       column :postcode
       column :name
     end
-  end
-
-  form do |f|
-    f.semantic_errors
-    f.inputs
-    inputs do
-      f.input :delivery_areas, as: :check_boxes,
-                               collection: DeliveryArea.order(:postcode)
-                                                       .map { |da| ["#{da.postcode} - #{da.name}", da.id] }
-    end
-    f.actions
   end
 end
