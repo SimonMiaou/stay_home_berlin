@@ -7,7 +7,7 @@ ActiveAdmin.register Business do
                 :business_sub_type,
                 :description,
                 :comment,
-                business_delivery_areas_attributes: [:delivery_area_id]
+                delivery_area_ids: []
 
   index do
     selectable_column
@@ -30,11 +30,10 @@ ActiveAdmin.register Business do
   form do |f|
     f.semantic_errors
     f.inputs
-    f.has_many :business_delivery_areas, allow_destroy: true do |da_f|
-      da_f.input :delivery_area,
-                 collection: DeliveryArea.order(:postcode)
-                                         .map { |da| ["#{da.postcode} - #{da.name}", da.id] }
-    end
+    f.input :delivery_areas, as: :select,
+                             multiple: true,
+                             collection: DeliveryArea.order(:postcode)
+                                                     .map { |da| ["#{da.postcode} - #{da.name}", da.id] }
     f.actions
   end
 end
