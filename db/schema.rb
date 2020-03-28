@@ -85,7 +85,7 @@ ActiveRecord::Schema.define(version: 2020_03_28_210501) do
 
   create_table "opening_hours", id: :uuid, default: -> { "gen_random_uuid()" }, force: :cascade do |t|
     t.uuid "business_id"
-    t.integer "day_number"
+    t.integer "day"
     t.time "opening_time"
     t.time "closing_time"
     t.datetime "created_at", precision: 6, null: false
