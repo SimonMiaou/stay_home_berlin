@@ -30,8 +30,7 @@ ActiveAdmin.register Business do
   form do |f|
     f.semantic_errors
     f.inputs
-    f.input :delivery_areas, as: :select,
-                             multiple: true,
+    f.input :delivery_areas, as: :check_boxes,
                              collection: DeliveryArea.order(:postcode)
                                                      .map { |da| ["#{da.postcode} - #{da.name}", da.id] }
     f.actions
