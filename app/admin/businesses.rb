@@ -5,8 +5,8 @@ ActiveAdmin.register Business do
                 :address,
                 :business_sub_type,
                 :business_type,
-                :comment,
                 :description,
+                :order_url,
                 :phone,
                 :website,
                 delivery_area_ids: []
@@ -20,8 +20,8 @@ ActiveAdmin.register Business do
       f.input :address
       f.input :phone
       f.input :website
+      f.input :order_url
       f.input :description
-      f.input :comment
     end
     f.inputs do
       f.input :delivery_areas, as: :check_boxes,
@@ -54,8 +54,8 @@ ActiveAdmin.register Business do
       row :address
       row :phone
       row :website
+      row :order_url
       row :description
-      row :comment
       row :created_at
       row :updated_at
     end
