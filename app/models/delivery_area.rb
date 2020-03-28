@@ -9,4 +9,8 @@ class DeliveryArea < ApplicationRecord
 
   has_many :business, through: :business_delivery_areas
   has_many :business_delivery_areas, dependent: :destroy
+
+  def self.as_form_collection
+    order(:postcode).map { |da| ["#{da.postcode} - #{da.name}", da.id] }
+  end
 end

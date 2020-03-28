@@ -14,8 +14,7 @@ ActiveAdmin.register Business do
     f.inputs
     inputs do
       f.input :delivery_areas, as: :check_boxes,
-                               collection: DeliveryArea.order(:postcode)
-                                                       .map { |da| ["#{da.postcode} - #{da.name}", da.id] }
+                               collection: DeliveryArea.as_form_collection
     end
     f.actions
   end
@@ -23,7 +22,7 @@ ActiveAdmin.register Business do
   remove_filter :business_delivery_areas
 
   preserve_default_filters!
-  filter :delivery_areas, collection: -> { DeliveryArea.order(:postcode).map { |da| ["#{da.postcode} - #{da.name}", da.id] } }
+  filter :delivery_areas, collection: -> { DeliveryArea.as_form_collection }
 
   index do
     selectable_column
