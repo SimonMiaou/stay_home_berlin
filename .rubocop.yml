@@ -13,6 +13,10 @@ Layout/LineLength:
 Metrics/AbcSize:
   Enabled: false
 
+Metrics/BlockLength:
+  Exclude:
+    - app/admin/*
+
 Metrics/MethodLength:
   Enabled: false
 
