@@ -10,7 +10,7 @@ ActiveAdmin.register Business do
                 :phone,
                 :website,
                 delivery_area_ids: [],
-                opening_hours_attributes: %i[day opening_time closing_time]
+                opening_hours_attributes: %i[id day opening_time closing_time _destroy]
 
   form do |f|
     f.semantic_errors
@@ -24,6 +24,7 @@ ActiveAdmin.register Business do
       f.input :order_url
       f.input :description
     end
+    f.actions
     f.inputs do
       f.has_many :opening_hours, allow_destroy: true do |oh_f|
         oh_f.input :day, as: :select, collection: OpeningHour.days_as_form_collection
@@ -31,6 +32,7 @@ ActiveAdmin.register Business do
         oh_f.input :closing_time
       end
     end
+    f.actions
     f.inputs do
       f.input :delivery_areas, as: :check_boxes,
                                collection: DeliveryArea.as_form_collection
