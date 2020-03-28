@@ -24,7 +24,9 @@ ActiveAdmin.register Business do
     f.semantic_errors
     f.inputs
     f.has_many :business_delivery_areas, new_record: true, allow_destroy: true do |da_f|
-      da_f.input :delivery_area
+      da_f.input :delivery_area,
+                 collection: DeliveryArea.order(:postcode)
+                                         .map { |da| ["#{da.postcode} - #{da.name}", da.id] }
     end
     f.actions
   end
