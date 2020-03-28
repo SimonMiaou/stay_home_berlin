@@ -20,10 +20,17 @@ ActiveAdmin.register Business do
     actions
   end
 
+  sidebar 'Delivery Areas', only: [:show] do
+    table_for business.delivery_areas do
+      column :postcode
+      column :name
+    end
+  end
+
   form do |f|
     f.semantic_errors
     f.inputs
-    f.has_many :business_delivery_areas, new_record: true, allow_destroy: true do |da_f|
+    f.has_many :business_delivery_areas, allow_destroy: true do |da_f|
       da_f.input :delivery_area,
                  collection: DeliveryArea.order(:postcode)
                                          .map { |da| ["#{da.postcode} - #{da.name}", da.id] }
