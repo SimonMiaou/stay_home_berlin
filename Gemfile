@@ -29,9 +29,7 @@ gem 'jbuilder', '~> 2.7'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'activeadmin'
-gem 'bootstrap', '~> 4.4.1'
 gem 'devise'
-gem 'jquery-rails'
 gem 'pg'
 
 group :development, :test do
