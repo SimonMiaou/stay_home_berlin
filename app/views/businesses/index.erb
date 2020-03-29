@@ -7,7 +7,7 @@
           <span class="badge badge-light"><%= business.business_type %></span>
           <span class="badge badge-light"><%= business.business_sub_type %></span>
         </p>
-        <p class="card-text"><%= business.description %></p>
+        <p class="card-text"><%= simple_format business.description %></p>
         <% if business.website.present? %>
           <a href="<%= business.website %>" target="_blank" class="btn btn-light">Website</a>
         <% end %>
