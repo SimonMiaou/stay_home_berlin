@@ -3,7 +3,14 @@
 class BusinessesController < ApplicationController
   def index; end
 
+  def show; end
+
   private
+
+  def business
+    @business ||= Business.find(params[:id])
+  end
+  helper_method :business
 
   def businesses
     @businesses ||= Business.all
