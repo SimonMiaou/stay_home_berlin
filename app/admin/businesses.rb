@@ -16,8 +16,8 @@ ActiveAdmin.register Business do
     f.semantic_errors
     f.inputs do
       f.input :name
-      f.input :business_sub_type
       f.input :business_type
+      f.input :business_sub_type
       f.input :address
       f.input :phone
       f.input :website
