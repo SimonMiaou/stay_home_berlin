@@ -65,7 +65,7 @@ ActiveAdmin.register Business do
       row :phone
       row :website
       row :order_url
-      row :description
+      row(:description) { |b| simple_format b.description }
       row :created_at
       row :updated_at
     end
