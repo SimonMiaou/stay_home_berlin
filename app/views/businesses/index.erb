@@ -2,12 +2,13 @@
   <% businesses.find_each do |business| %>
     <div class="card">
       <div class="card-body">
-        <h5 class="card-title"><%= business.name %></h5>
+        <h5 class="card-title"><%= link_to business.name, business_path(business) %></h5>
         <p class="card-text">
           <span class="badge badge-light"><%= business.business_type %></span>
           <span class="badge badge-light"><%= business.business_sub_type %></span>
         </p>
         <p class="card-text"><%= simple_format business.description %></p>
+        <%= link_to 'View details', business_path(business), class: 'btn btn-primary' %>
         <% if business.website.present? %>
           <a href="<%= business.website %>" target="_blank" class="btn btn-light">Website</a>
         <% end %>
