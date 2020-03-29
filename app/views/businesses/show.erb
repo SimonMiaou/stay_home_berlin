@@ -1,3 +1,4 @@
+<%= link_to 'Back to list', root_path, class: 'btn btn-link' %>
 <div class="card">
   <div class="card-body">
     <h5 class="card-title"><%= business.name %></h5>
@@ -22,4 +23,18 @@
       </a>
     <% end %>
   </div>
+  <% if business.opening_hours.any? %>
+    <div class="card-body">
+      <table class="table table-borderless table-sm w-auto">
+        <tbody>
+          <% business.opening_hours_to_show.each do |day_as_string, opening_hours| %>
+            <tr>
+              <th><%= day_as_string %></th>
+              <td><%= opening_hours %></td>
+            </tr>
+          <% end %>
+        </tbody>
+      </table>
+    </div>
+  <% end %>
 </div>
