@@ -98,6 +98,7 @@ ActiveRecord::Schema.define(version: 2020_03_30_184504) do
     t.text "content"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["slug"], name: "index_pages_on_slug", unique: true
   end
 
 end

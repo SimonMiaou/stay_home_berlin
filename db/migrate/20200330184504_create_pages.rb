@@ -8,6 +8,8 @@ class CreatePages < ActiveRecord::Migration[6.0]
       t.text :content
 
       t.timestamps
+
+         t.index [:slug], unique: true
     end
   end
 end
