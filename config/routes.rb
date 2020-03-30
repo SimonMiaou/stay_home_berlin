@@ -6,4 +6,5 @@ Rails.application.routes.draw do
   root 'businesses#index'
 
   resources :businesses, only: [:show]
+  resources :pages, param: :slug, only: [:show]
 end
