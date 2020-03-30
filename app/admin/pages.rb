@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 ActiveAdmin.register Page do
-  permit_params :slug, :title, :content
+  permit_params :slug, :menu_order, :title, :content
 
   index do
     selectable_column
     id_column
-    column :slub
+    column :slug
+    column :menu_order
     column :title
     column :updated_at
     actions
@@ -14,7 +15,8 @@ ActiveAdmin.register Page do
 
   show do
     attributes_table do
-      row :slub
+      row :slug
+      row :menu_order
       row :title
       row(:content) { |b| simple_format b.content }
       row :created_at
