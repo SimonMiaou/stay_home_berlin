@@ -13,7 +13,7 @@ class BusinessesController < ApplicationController
   helper_method :business
 
   def businesses
-    @businesses ||= Business.all
+    @businesses ||= Business.order('RANDOM()')
   end
   helper_method :businesses
 end
