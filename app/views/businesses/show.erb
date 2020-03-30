@@ -1,4 +1,4 @@
-<%= link_to 'Back to list', root_path, class: 'btn btn-link' %>
+<%= link_to '<< Back', :back, class: 'btn btn-link' %>
 <div class="card">
   <div class="card-body">
     <h5 class="card-title"><%= business.name %></h5>
@@ -25,6 +25,7 @@
   </div>
   <% if business.opening_hours.any? %>
     <div class="card-body">
+      <h6 class="card-title">Opening hours</h6>
       <table class="table table-borderless table-sm w-auto">
         <tbody>
           <% business.opening_hours_to_show.each do |day_as_string, opening_hours| %>
@@ -35,6 +36,16 @@
           <% end %>
         </tbody>
       </table>
+    </div>
+  <% end %>
+  <% if business.delivery_areas.any? %>
+    <div class="card-body">
+      <h6 class="card-title">Delivery areas</h6>
+      <ul>
+        <% business.delivery_areas.each do |delivery_area| %>
+          <li><%= delivery_area.postcode %> - <%= delivery_area.name %></li>
+        <% end %>
+      </ul>
     </div>
   <% end %>
 </div>
